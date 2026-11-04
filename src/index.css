@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100vh;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lexend Exa', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* ── Realistic Live Casino Table Deck ── */
+  background-color: #072612;
+
+  /* Layer 1: Padded luxury casino table border / armrest shadow
+     Layer 2: Overhead casino spotlight beaming onto the center felt
+     Layer 3: Subtle felt baize weave texture */
+  background-image:
+    /* Deep vignette and rim shadow from table armrest rails */
+    radial-gradient(circle at 50% 50%, transparent 60%, rgba(2, 10, 5, 0.85) 90%, rgba(1, 6, 3, 0.98) 100%),
+    /* Overhead casino table warm spotlight */
+    radial-gradient(ellipse 80% 60% at 50% 42%, #1b6637 0%, #104824 45%, #082d16 75%, #041a0c 100%),
+    /* Felt fabric weave texture simulation */
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 0px, rgba(0, 0, 0, 0.05) 1px, transparent 1px, transparent 3px);
+
+  background-size: 100% 100%, 100% 100%, 4px 4px, 4px 4px;
+  background-attachment: fixed;
+  background-repeat: no-repeat, no-repeat, repeat, repeat;
+
+  /* Padded casino table armrest border (rich dark leather rim) */
+  box-shadow: inset 0 0 35px 12px rgba(0, 0, 0, 0.85);
+  border: 14px solid #140d07;
+  outline: 3px solid #2d1e11;
+  outline-offset: -14px;
+
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle casino wood trim ambient glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid rgba(229, 193, 88, 0.15);
+  pointer-events: none;
+  z-index: 999;
+}
+
+#root {
+  min-height: calc(100vh - 28px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    border-width: 8px;
+    outline-width: 2px;
+    outline-offset: -8px;
+  }
+}

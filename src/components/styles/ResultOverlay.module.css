@@ -1,0 +1,169 @@
+/* ── Overlay backdrop ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Result card ── */
+.card {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6em;
+  padding: 2.2em 3em;
+  border-radius: 20px;
+  border: 5px solid;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  background: #111;
+  min-width: 290px;
+  animation: cardPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes cardPop {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.winCard  { border-color: gold; }
+.loseCard { border-color: tomato; }
+.tieCard  { border-color: #aaa; }
+
+/* ── Emoji ── */
+.emoji {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+/* Win: bounce up and down */
+.bounceEmoji {
+  animation: bounce 0.7s ease infinite alternate;
+}
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-16px); }
+}
+
+/* Lose: shake */
+.shakeEmoji {
+  animation: shake 0.5s ease forwards;
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20%      { transform: translateX(-10px); }
+  40%      { transform: translateX(10px); }
+  60%      { transform: translateX(-8px); }
+  80%      { transform: translateX(8px); }
+}
+
+/* Tie: gentle pulse */
+.pulseEmoji {
+  animation: pulse 1s ease infinite alternate;
+}
+@keyframes pulse {
+  from { transform: scale(1); }
+  to   { transform: scale(1.15); }
+}
+
+/* ── Headline ── */
+.headline {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.winText  { color: gold; }
+.loseText { color: tomato; }
+.tieText  { color: #ccc; }
+
+/* ── Split breakdown ── */
+.splitList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  width: 100%;
+  padding: 0.6em 1em;
+  margin: 0.2em 0;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+
+.splitItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05rem;
+}
+
+.splitLabel {
+  color: #ddd;
+  font-weight: bold;
+}
+
+.splitWin  { color: #4cff91; font-weight: bold; }
+.splitLose { color: tomato; font-weight: bold; }
+.splitTie  { color: #ccc; font-weight: bold; }
+
+/* ── Amount change ── */
+.amount {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.amountWin  { color: #4cff91; }
+.amountLose { color: tomato; }
+.amountTie  { color: #aaa; }
+
+/* ── Next Round button ── */
+.nextBtn {
+  margin-top: 0.8em;
+  padding: 0.7em 2em;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 12px;
+  border: 3px solid;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.nextBtnWin  { color: gold;   border-color: gold; }
+.nextBtnLose { color: tomato; border-color: tomato; }
+.nextBtnTie  { color: #ccc;   border-color: #aaa; }
+
+.nextBtnWin:hover  { background: gold;   color: #000; }
+.nextBtnLose:hover { background: tomato; color: #000; }
+.nextBtnTie:hover  { background: #aaa;   color: #000; }
+
+/* ── Confetti pieces ── */
+.confettiPiece {
+  position: absolute;
+  top: -20px;
+  animation: confettiFall linear forwards;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+@keyframes confettiFall {
+  0%   { transform: translateY(0)   rotate(0deg)   scaleX(1); opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg) scaleX(-1); opacity: 0; }
+}

@@ -1,0 +1,213 @@
+/* ── Deal-in animation ─────────────────────────────────────────────────────── */
+@keyframes dealIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-90px) rotate(-6deg) scale(0.9);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(8px) rotate(1deg) scale(1.02);
+  }
+  85% {
+    transform: translateY(-3px) rotate(-0.5deg) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+.dealIn {
+  opacity: 0;
+  animation: dealIn 0.42s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* ── Standard Casino Playing Card Proportions (2.5 : 3.5 Ratio) ───────────── */
+.card {
+  position: relative;
+  width: 125px;
+  height: 175px;
+  margin: 8px 10px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 
+    0 8px 22px rgba(0, 0, 0, 0.45),
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  user-select: none;
+  cursor: default;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Card Face Layout ──────────────────────────────────────────────────────── */
+.cardFace {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.blackSuit {
+  color: #1a1a1a;
+}
+
+.redSuit {
+  color: #d62828;
+}
+
+/* Corner indices */
+.cornerTop {
+  position: absolute;
+  top: 6px;
+  left: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.95;
+}
+
+.cornerBottom {
+  position: absolute;
+  bottom: 6px;
+  right: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.95;
+  transform: rotate(180deg);
+}
+
+.cornerValue {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.cornerSuit {
+  font-size: 0.95rem;
+  margin-top: 1px;
+}
+
+/* Centered Suit Pip */
+.centerPip {
+  font-size: 3.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+/* ── Authentic Casino Card Back (Bee / Bicycle Red Lattice Deck) ───────────── */
+.cardBack {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardBackPattern {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  background-color: #a81c1c;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.18) 0px, rgba(255, 255, 255, 0.18) 2px, transparent 2px, transparent 10px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.18) 0px, rgba(255, 255, 255, 0.18) 2px, transparent 2px, transparent 10px),
+    radial-gradient(circle at 50% 50%, #c12929 20%, #7e1212 100%);
+  border: 2px solid #ffffff;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardBackSeal {
+  background: rgba(255, 255, 255, 0.92);
+  color: #a81c1c;
+  padding: 3px 6px;
+  border-radius: 12px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  border: 1px solid rgba(168, 28, 28, 0.4);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Responsive Scaling (Preserving Proper Aspect Ratio) ───────────────────── */
+@media screen and (max-width: 992px) {
+  .card {
+    width: 98px;
+    height: 138px;
+    margin: 6px 7px;
+    border-radius: 8px;
+  }
+  .cornerTop {
+    top: 5px;
+    left: 6px;
+  }
+  .cornerBottom {
+    bottom: 5px;
+    right: 6px;
+  }
+  .cornerValue {
+    font-size: 0.95rem;
+  }
+  .cornerSuit {
+    font-size: 0.78rem;
+  }
+  .centerPip {
+    font-size: 2.4rem;
+  }
+  .cardBackSeal {
+    font-size: 0.52rem;
+    letter-spacing: 1px;
+    padding: 2px 4px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 72px;
+    height: 101px;
+    margin: 4px 5px;
+    border-radius: 6px;
+  }
+  .cornerTop {
+    top: 3px;
+    left: 4px;
+  }
+  .cornerBottom {
+    bottom: 3px;
+    right: 4px;
+  }
+  .cornerValue {
+    font-size: 0.75rem;
+  }
+  .cornerSuit {
+    font-size: 0.62rem;
+  }
+  .centerPip {
+    font-size: 1.7rem;
+  }
+  .cardBack {
+    padding: 3px;
+  }
+  .cardBackPattern {
+    border-width: 1px;
+  }
+  .cardBackSeal {
+    display: none;
+  }
+}

@@ -1,0 +1,64 @@
+.statusContainer {
+  display: flex;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0.5rem auto 0 auto;
+  width: 100%;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5em 0.5em 0.5em 1em;
+  padding: 0.85em 1.2em;
+  width: 62%;
+  background: rgba(10, 18, 12, 0.92);
+  border: 4px solid rgba(229, 193, 88, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5em 1em 0.5em 0.5em;
+  padding: 0.85em 1.2em;
+  width: 32%;
+  background: rgba(10, 18, 12, 0.92);
+  border: 4px solid rgba(229, 193, 88, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.value {
+  color: #fff;
+  text-align: center;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+}
+
+.betInfo {
+  color: #ffd700;
+  font-size: 85%;
+  text-align: center;
+  margin: 0.2em 0 0 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+@media screen and (max-width: 992px) {
+  .value {
+    font-size: 130%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .value {
+    font-size: 105%;
+  }
+}

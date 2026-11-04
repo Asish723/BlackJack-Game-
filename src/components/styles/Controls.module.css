@@ -1,0 +1,161 @@
+.controlsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0.5em 1em 1em 1em;
+  gap: 0.5em;
+}
+
+.betContainer {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: 0 0.5em;
+  padding: 0 1em;
+  width: 40%;
+  background: black;
+  border: 5px solid white;
+  border-radius: 15px;
+  box-shadow: 0px 1px 10px rgb(0, 0, 0);
+}
+
+.input {
+  width: 1px;
+  flex-grow: 1;
+  margin: 0 0 0 0.5em;
+  font-size: 200%;
+  text-align: right;
+  margin: 5px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: black;
+  color: white;
+}
+
+.inputError {
+  width: 1px;
+  flex-grow: 1;
+  margin: 0 0 0 0.5em;
+  font-size: 200%;
+  text-align: right;
+  margin: 5px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: black;
+  color: red;
+}
+
+.input::-webkit-inner-spin-button, 
+.inputError::-webkit-inner-spin-button {
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.button {
+  color: white;
+  font-weight: bold;
+  padding: 0.8em 1.2em;
+  min-width: 110px;
+  background: black;
+  outline: none;
+  border: 5px solid white;
+  border-radius: 15px;
+  box-shadow: 0px 1px 10px rgb(0, 0, 0);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    color: black;
+    background: white;
+    border: 5px solid black;
+  }
+}
+
+.button:disabled {
+  color: gray;
+  background: rgb(60, 60, 60);
+  border: 5px solid gray;
+  cursor: not-allowed;
+}
+
+/* Insurance-specific button styles */
+.insuranceButton {
+  border-color: gold;
+  color: gold;
+}
+
+@media (hover: hover) {
+  .insuranceButton:hover {
+    background: gold;
+    color: black;
+    border-color: black;
+  }
+}
+
+.declineButton {
+  border-color: tomato;
+  color: tomato;
+}
+
+@media (hover: hover) {
+  .declineButton:hover {
+    background: tomato;
+    color: black;
+    border-color: black;
+  }
+}
+
+/* Double Down button */
+.doubleButton {
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+@media (hover: hover) {
+  .doubleButton:hover {
+    background: #ffd700;
+    color: black;
+    border-color: black;
+  }
+}
+
+/* Split button */
+.splitButton {
+  border-color: #b388ff;
+  color: #b388ff;
+}
+
+@media (hover: hover) {
+  .splitButton:hover {
+    background: #b388ff;
+    color: black;
+    border-color: black;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .betContainer {
+    width: 50%;    
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .betContainer {
+    width: 70%;        
+  }
+  .betContainer h4 {
+    font-size: 75%;        
+  }
+  .betContainer input {
+    font-size: 125%;        
+  }
+  .button {
+    min-width: 80px;
+    padding: 0.6em 0.8em;
+  }
+}
